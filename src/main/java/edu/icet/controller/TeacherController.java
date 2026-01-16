@@ -1,34 +1,44 @@
 package edu.icet.controller;
 
 import edu.icet.dto.TeacherDto;
-import org.springframework.web.bind.annotation.RestController;
+import edu.icet.service.TeacherService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class TeacherController {
 
+    final TeacherService teacherService;
 
-     public void addTeacher(TeacherDto teacherDto){
-
-     }
-
-     public void updateTeacher(TeacherDto teacherDto){
-
-     }
-
-     public void deleteTeacher(Integer id){
+    @PostMapping("/add-teacher")
+     public void addTeacher(@RequestBody TeacherDto teacherDto){
+         teacherService.addTeacher(teacherDto);
 
      }
 
-     public TeacherDto searchTeacherById(Integer id){
+     @PutMapping("/update-teacher")
+     public void updateTeacher(@RequestBody TeacherDto teacherDto){
+         teacherService.updateTeacher(teacherDto);
 
-         return null;
      }
 
+     @DeleteMapping("/delete-teacher/{id}")
+     public void deleteTeacher(@PathVariable Integer id){
+         teacherService.deleteTeacher(id);
+
+     }
+
+     @GetMapping("/search-teacher/{id}")
+     public TeacherDto searchTeacherById(@PathVariable Integer id){
+         return teacherService.searchTeacherById(id);
+     }
+
+     @GetMapping("search-all-teachers")
      public List<TeacherDto> searchAll(){
-
-         return null;
+         return teacherService.searchAll();
      }
 }
 
