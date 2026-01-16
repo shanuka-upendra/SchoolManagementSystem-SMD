@@ -17,7 +17,7 @@ public class StudentServiceImpl implements StudentService {
 
     final StudentRepository studentRepository;
 
-//    final ModelMapper modelMapper;
+    final ModelMapper modelMapper;
 
     @Override
     public String getName() {
@@ -32,33 +32,42 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void addStudent(StudentDto studentDto) {
 
-
-
+        StudentEntity studentEntity = modelMapper.map(studentDto,StudentEntity.class);
+        studentRepository.save(studentEntity);
 
     }
 
     @Override
     public void updateStudent(StudentDto studentDto) {
 
+        StudentEntity studentEntity = modelMapper.map(studentDto,StudentEntity.class);
+        studentRepository.save(studentEntity);
+
     }
 
     @Override
     public void deleteStudent(Integer id) {
-
-
         studentRepository.deleteById(id);
 
     }
 
     @Override
     public StudentDto searchStudent(Integer id) {
+        StudentEntity studentEntity = studentRepository.findById(id).get();
+        StudentDto studentDto = modelMapper.map(studentEntity,StudentDto.class);
+        return studentDto;
 
-        return null;
     }
 
     @Override
     public List<StudentDto> searchAll() {
+        List<StudentEntity> all = studentRepository.findAll();
+        List<StudentDto> studentDtoArrayList = new ArrayList<>();
 
-        return null;
+        all.forEach(studentEntity -> {
+            StudentDto studentDto = modelMapper.map(studentEntity,StudentDto.class);
+            studentDtoArrayList.add(studentDto);
+        });
+        return studentDtoArrayList;
     }
 }
