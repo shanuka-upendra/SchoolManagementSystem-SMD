@@ -4,10 +4,7 @@ import edu.icet.dto.UserDto;
 import edu.icet.service.SchoolService;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,5 +20,10 @@ public class UserController {
     @PutMapping("/update-user")
     public void updateUser(@RequestBody UserDto userDto){
         userService.updateUser(userDto);
+    }
+
+    @DeleteMapping("/delete-user/{id}")
+    public void deleteUser(@PathVariable Integer id){
+        userService.deleteUser(id);
     }
 }

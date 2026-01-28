@@ -5,4 +5,5 @@ import edu.icet.dto.UserDto;
 public interface UserService {
     void addUser(UserDto userDto);
     void updateUser(UserDto userDto);
+    void deleteUser(Integer id);
 }
