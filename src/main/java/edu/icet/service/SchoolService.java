@@ -5,4 +5,5 @@ import edu.icet.dto.SchoolDto;
 public interface SchoolService {
     void addSchool(SchoolDto schoolDto);
     void updateSchool(SchoolDto schoolDto);
+    void deleteSchool(Integer id);
 }

@@ -3,9 +3,7 @@ package edu.icet.controller;
 import edu.icet.dto.SchoolDto;
 import edu.icet.service.SchoolService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -22,5 +20,10 @@ public class SchoolController {
     @PostMapping("/update-school")
     public void updateSchool(@RequestBody SchoolDto schoolDto){
         schoolService.updateSchool(schoolDto);
+    }
+
+    @DeleteMapping("/delete-school/{id}")
+    public void deleteSchool(@PathVariable Integer id){
+        schoolService.deleteSchool(id);
     }
 }

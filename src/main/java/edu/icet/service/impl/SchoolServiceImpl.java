@@ -26,5 +26,10 @@ public class SchoolServiceImpl implements SchoolService {
         schoolRepository.save(modelMapper.map(schoolDto, SchoolEntity.class));
     }
 
+    @Override
+    public void deleteSchool(Integer id) {
+        schoolRepository.deleteById(id);
+    }
+
 
 }
