@@ -5,6 +5,7 @@ import edu.icet.service.SchoolService;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,10 @@ public class UserController {
     @PostMapping("/add-user")
     public void addUser(@RequestBody UserDto userDto){
         userService.addUser(userDto);
+    }
+
+    @PutMapping("/update-user")
+    public void updateUser(@RequestBody UserDto userDto){
+        userService.updateUser(userDto);
     }
 }

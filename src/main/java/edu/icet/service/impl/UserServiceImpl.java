@@ -20,4 +20,9 @@ public class UserServiceImpl implements UserService {
     public void addUser(UserDto userDto) {
         userRepository.save(modelMapper.map(userDto, UserEntity.class));
     }
+
+    @Override
+    public void updateUser(UserDto userDto) {
+        userRepository.save(modelMapper.map(userDto, UserEntity.class));
+    }
 }

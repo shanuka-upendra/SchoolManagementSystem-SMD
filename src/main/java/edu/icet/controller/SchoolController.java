@@ -20,7 +20,7 @@ public class SchoolController {
         schoolService.addSchool(schoolDto);
     }
 
-    @PostMapping("/update-school")
+    @PutMapping("/update-school")
     public void updateSchool(@RequestBody SchoolDto schoolDto){
         schoolService.updateSchool(schoolDto);
     }
