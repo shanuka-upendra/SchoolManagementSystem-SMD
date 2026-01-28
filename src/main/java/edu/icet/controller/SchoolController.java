@@ -2,8 +2,11 @@ package edu.icet.controller;
 
 import edu.icet.dto.SchoolDto;
 import edu.icet.service.SchoolService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -25,5 +28,15 @@ public class SchoolController {
     @DeleteMapping("/delete-school/{id}")
     public void deleteSchool(@PathVariable Integer id){
         schoolService.deleteSchool(id);
+    }
+
+    @GetMapping("/search-school/{id}")
+    public SchoolDto searchSchool(@PathVariable Integer id){
+        return schoolService.searchSchool(id);
+    }
+
+    @GetMapping("/search-all-school")
+        public List<SchoolDto> searchAll(){
+            return schoolService.searchAll();
     }
 }

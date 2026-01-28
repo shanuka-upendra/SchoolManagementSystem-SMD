@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class SchoolServiceImpl implements SchoolService {
@@ -31,5 +34,22 @@ public class SchoolServiceImpl implements SchoolService {
         schoolRepository.deleteById(id);
     }
 
+    @Override
+    public SchoolDto searchSchool(Integer id) {
+        SchoolEntity schoolEntity = schoolRepository.findById(id).get();
+        SchoolDto schoolDto = modelMapper.map(schoolEntity, SchoolDto.class);
+        return schoolDto;
+    }
 
+    @Override
+    public List<SchoolDto> searchAll() {
+       List<SchoolEntity> allSchool = schoolRepository.findAll();
+       List<SchoolDto> schoolDtoArray = new ArrayList<>();
+
+       allSchool.forEach( schoolEntity -> {
+            SchoolDto schoolDto = modelMapper.map(schoolEntity, SchoolDto.class);
+            schoolDtoArray.add(schoolDto);
+       });
+        return schoolDtoArray;
+    }
 }
