@@ -15,7 +15,12 @@ public class SchoolController {
     final SchoolService schoolService;
 
     @PostMapping("/add-school")
-    public void addSchool(@RequestBody SchoolDto school){
-        schoolService.addSchool(school);
+    public void addSchool(@RequestBody SchoolDto schoolDto){
+        schoolService.addSchool(schoolDto);
+    }
+
+    @PostMapping("/update-school")
+    public void updateSchool(@RequestBody SchoolDto schoolDto){
+        schoolService.updateSchool(schoolDto);
     }
 }

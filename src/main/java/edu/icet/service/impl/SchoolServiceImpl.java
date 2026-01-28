@@ -21,5 +21,10 @@ public class SchoolServiceImpl implements SchoolService {
         schoolRepository.save(modelMapper.map(school, SchoolEntity.class));
     }
 
+    @Override
+    public void updateSchool(SchoolDto schoolDto) {
+        schoolRepository.save(modelMapper.map(schoolDto, SchoolEntity.class));
+    }
+
 
 }

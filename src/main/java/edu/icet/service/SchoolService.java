@@ -1,8 +1,8 @@
 package edu.icet.service;
 
 import edu.icet.dto.SchoolDto;
-import edu.icet.entity.SchoolEntity;
 
 public interface SchoolService {
-    void addSchool(SchoolDto school);
+    void addSchool(SchoolDto schoolDto);
+    void updateSchool(SchoolDto schoolDto);
 }
