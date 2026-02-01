@@ -1,6 +1,8 @@
 package edu.icet.service.impl;
 
+import edu.icet.dto.SchoolDto;
 import edu.icet.dto.UserDto;
+import edu.icet.entity.SchoolEntity;
 import edu.icet.entity.UserEntity;
 import edu.icet.repository.UserRepository;
 import edu.icet.service.UserService;
@@ -29,5 +31,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Integer id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public UserDto searchUser(Integer id) {
+        UserEntity userEntity = userRepository.findById(id).get();
+        UserDto userDto = modelMapper.map(userEntity, UserDto.class);
+        return userDto;
     }
 }
