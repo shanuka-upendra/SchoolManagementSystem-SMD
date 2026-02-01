@@ -1,5 +1,6 @@
 package edu.icet.dto;
 
+import edu.icet.senum.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,9 +13,10 @@ import lombok.ToString;
 public class SchoolDto {
     private Integer id;
     private String name;
-    private String regitrationNumber;
+    private String code;
     private String address;
     private String contactEmail;
     private Integer contactPhone;
-    private String logourl;
+    private String logoUrl;
+    private Status status;
 }

@@ -1,10 +1,13 @@
 package edu.icet.entity;
-import edu.icet.gender.Gender;
+import edu.icet.senum.Gender;
+import edu.icet.senum.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -15,12 +18,13 @@ import lombok.ToString;
 public class StudentEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer studentId;
+    private Integer userId;
     private Integer schoolId;
-    private String name;
-    private Integer age;
-    private String grade;
-    private String address;
+    private String admissionNumber;
+    private Date admissionDate;
+    private Integer currentClass;
+    private Date DOB;
     private Gender gender;
-    private Integer phone;
+    private Status status;
 }

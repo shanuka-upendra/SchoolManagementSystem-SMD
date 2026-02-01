@@ -1,5 +1,6 @@
 package edu.icet.entity;
 
+import edu.icet.senum.Status;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,9 +20,10 @@ public class SchoolEntity {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String regitrationNumber;
+    private String code;
     private String address;
     private String contactEmail;
     private Integer contactPhone;
-    private String logourl;
+    private String logoUrl;
+    private Status status;
 }

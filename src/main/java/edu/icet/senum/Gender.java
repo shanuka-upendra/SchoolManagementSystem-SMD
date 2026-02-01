@@ -1,4 +1,4 @@
-package edu.icet.gender;
+package edu.icet.senum;
 
 public enum Gender {
     MALE , FEMALE
