@@ -1,7 +1,6 @@
 package edu.icet.controller;
 
 import edu.icet.dto.UserDto;
-import edu.icet.service.SchoolService;
 import edu.icet.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
