@@ -34,7 +34,7 @@ public class ClassController {
     }
 
     @GetMapping("/search-all")
-        public List<ClassDto> getAll(){
+    public List<ClassDto> getAll(){
             return classService.getAll();
     }
 }

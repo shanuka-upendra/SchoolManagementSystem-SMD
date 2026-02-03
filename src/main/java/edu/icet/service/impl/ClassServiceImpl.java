@@ -53,24 +53,4 @@ public class ClassServiceImpl implements ClassService {
         ClassDto classDto = mapper.map(classEntity,ClassDto.class);
         return classDto;
     }
-
-    @Override
-    public List<ClassDto> searchClassByClassName(String name) {
-        return List.of();
-    }
-
-    @Override
-    public List<ClassDto> searchClassByGrade(String grade) {
-        return List.of();
-    }
-
-    @Override
-    public List<ClassDto> searchClassByTeacherId(Long teacherId) {
-        return List.of();
-    }
-
-    @Override
-    public List<ClassDto> searchClassByStudentId(Long studentId) {
-        return List.of();
-    }
 }
