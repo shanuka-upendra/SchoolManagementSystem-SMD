@@ -1,13 +1,16 @@
 package edu.icet.service.impl;
 
 import edu.icet.dto.ClassDto;
+import edu.icet.dto.SchoolDto;
 import edu.icet.entity.ClassEntity;
+import edu.icet.entity.SchoolEntity;
 import edu.icet.repository.ClassRepository;
 import edu.icet.service.ClassService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -34,8 +37,14 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public List<ClassDto> getAll(ClassDto classDto) {
-        return List.of();
+    public List<ClassDto> getAll() {
+        List<ClassEntity> all = repository.findAll();
+        List<ClassDto> dtoList = new ArrayList<>();
+
+        all.forEach(classEntity -> {
+            dtoList.add(mapper.map(classEntity,ClassDto.class));
+        });
+        return dtoList;
     }
 
     @Override

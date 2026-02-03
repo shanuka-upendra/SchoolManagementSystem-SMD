@@ -5,6 +5,8 @@ import edu.icet.service.ClassService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class ClassController {
@@ -26,8 +28,13 @@ public class ClassController {
         classService.deleteClass(id);
     }
 
-    @GetMapping("/search-all")
-    public ClassDto searchClassById(@RequestBody Integer id){
+    @GetMapping("/search-by-id/{id}")
+    public ClassDto searchClassById(@PathVariable Integer id){
         return classService.searchClassById(id);
+    }
+
+    @GetMapping("/search-all")
+        public List<ClassDto> getAll(){
+            return classService.getAll();
     }
 }
